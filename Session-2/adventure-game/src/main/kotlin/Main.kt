@@ -33,15 +33,23 @@ fun challengeTwo(){
     when(userAnswer){
         "low" -> if (randomDiceRoll < 4){
             println("Correct!")
+            challengeThree()
         } else {
             gameOver()
         }
         "high" -> if(randomDiceRoll > 3){
             println("Correct!")
+            challengeThree()
         } else {
             gameOver()
         }
     }
+}
+
+fun challengeThree (){
+    println("ROUND 3 - if you fail this round, drink 6 sips")
+    println("I hope you are enjoying it so far.")
+    println("Now, what is the best thing to do to prevent an hangover?")
 }
 
 fun gameOver(){
