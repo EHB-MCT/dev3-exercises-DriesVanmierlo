@@ -49,7 +49,25 @@ fun challengeTwo(){
 fun challengeThree (){
     println("ROUND 3 - if you fail this round, drink 6 sips")
     println("I hope you are enjoying it so far.")
-    println("Now, what is the best thing to do to prevent an hangover?")
+    println("Now, imagine you have an hangover from yesterday.")
+    println("You are still laying in bed not feeling so well.")
+    println("What are going to do to fight that evil hangover?")
+    println("Are you:")
+    println("1: drink nothing, otherwise it will upset your stomach.")
+    println("2: drink water, this way you will be hydrated again.")
+    println("3: eat a big meal to compensate the rest of the alcohol in your body.")
+    println("Type the number of your next move.")
+
+    var userAnswer: String? = readLine()
+
+    when(userAnswer){
+        "1" -> gameOver()
+        "2" -> println("Idk, but I would do this :)")
+        "3" -> {
+            println("Not the best idea, try round 2 again and come back later!")
+            challengeTwo()
+        }
+    }
 }
 
 fun gameOver(){
