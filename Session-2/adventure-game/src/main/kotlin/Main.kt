@@ -62,7 +62,10 @@ fun challengeThree (){
 
     when(userAnswer){
         "1" -> gameOver()
-        "2" -> println("Idk, but I would do this :)")
+        "2" -> {
+            println("Idk, but I would do this :)")
+            challengeFour()
+        }
         "3" -> {
             println("Not the best idea, try round 2 again and come back later!")
             challengeTwo()
@@ -70,10 +73,33 @@ fun challengeThree (){
     }
 }
 
+fun challengeFour(){
+    println("ROUND 4 - special round")
+    println("You will be doing the higher-lower game!")
+    println("For each guess, you need to drink a sip")
+    println("So with that in mind, guess the number between 1-100!")
+
+    var randomNumber = (1..100).random()
+    println(randomNumber)
+    var guessUser = readLine()?.toInt()
+    while (randomNumber != guessUser){
+        if (randomNumber > guessUser!!){
+            println("Wrong, try again, it's higher")
+            println("Your previous guess was:$guessUser")
+            guessUser = readLine()?.toInt()
+        } else {
+            println("Wrong, try again, it's lower")
+            println("Your previous guess was:$guessUser")
+            guessUser = readLine()?.toInt()
+        }
+    }
+    println("Well done!")
+}
+
 fun gameOver(){
     println("GAME OVER, you need to drink!")
 }
 
 fun rollDice (): Int {
-    return (0..6).random()
+    return (1..6).random()
 }
