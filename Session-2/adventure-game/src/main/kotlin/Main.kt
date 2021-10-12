@@ -13,11 +13,41 @@ fun challengeOne(){
     val userAnswer = readLine()
     if(correctAnswersBeers.contains(userAnswer)){
         println("Correct! You clearly have a good taste!")
+        challengeTwo()
     } else {
         gameOver()
     }
 }
 
+fun challengeTwo(){
+    println("ROUND 2 - if you fail this round, drink 4 sips")
+    println("Congrats, you made it to round 2!")
+    println("Now you have to predict a virtual dice roll.")
+    println("if you think it's gonna be 1-3, type low")
+    println("if you think it's gonna be 4-6, type high")
+
+    val randomDiceRoll = rollDice()
+    println(randomDiceRoll)
+    val userAnswer = readLine()
+
+    when(userAnswer){
+        "low" -> if (randomDiceRoll < 4){
+            println("Correct!")
+        } else {
+            gameOver()
+        }
+        "high" -> if(randomDiceRoll > 3){
+            println("Correct!")
+        } else {
+            gameOver()
+        }
+    }
+}
+
 fun gameOver(){
     println("GAME OVER, you need to drink!")
+}
+
+fun rollDice (): Int {
+    return (0..6).random()
 }
