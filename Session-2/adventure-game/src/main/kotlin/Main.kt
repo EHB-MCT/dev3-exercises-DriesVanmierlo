@@ -1,0 +1,23 @@
+fun main(){
+    println("Welcome to the game: Lets get drunk!")
+    println("Try to get to the last round, if you succeed, you can give out some shots!")
+    println("But, if you fail, you have to drink twice as much as the number of the round you failed.")
+    println("Good luck!")
+    challengeOne()
+}
+
+fun challengeOne(){
+    println("ROUND 1 - if you fail this round, drink 2 sips")
+    println("Tell me, what do you think is one of my favourite, Belgian beers?")
+    val correctAnswersBeers = setOf<String>("Stella Artois", "Cristal", "Cornet", "La Chouffe")
+    val userAnswer = readLine()
+    if(correctAnswersBeers.contains(userAnswer)){
+        println("Correct! You clearly have a good taste!")
+    } else {
+        gameOver()
+    }
+}
+
+fun gameOver(){
+    println("GAME OVER, you need to drink!")
+}
