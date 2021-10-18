@@ -94,6 +94,12 @@ fun challengeFour(){
         }
     }
     println("Well done!")
+    endBoss()
+}
+
+fun endBoss (){
+//    val mutableMap1: MutableMap<Int, String> = mutableMapOf<Int, String>(1 to "Egon Harv", 2 to "gave horn", 3 to "hero Vang")
+
 }
 
 fun gameOver(){
