@@ -1,5 +1,13 @@
-class Chatbot(override val name: String): Person(name) {
-    fun talk(){
+class Chatbot(): ChatPartner {
+    override fun introduce() {
+        println("Hi my name is Real John Denver")
+    }
+
+    override fun talk(){
+        sing()
+    }
+
+    fun sing(){
         println("Are you read to party?\n" +
                 "Here we go\n" +
                 "Almost heaven, West Virginia\n" +
