@@ -21,11 +21,41 @@ SELECT COUNT(*) FROM products WHERE productLine = 'Ships'
 SELECT COUNT(*) FROM orders WHERE customerNumber = '328'
 3
 
-SELECT COUNT(*) FROM orders WHERE customerNumber = (SELECT customerNumber FROM customers WHERE contactLastName = 'Young' AND contactFirstName = 'julie')
+SELECT COUNT(*) FROM customers LEFT JOIN orders ON orders.customerNumber = customers.customerNumber WHERE contactLastName = 'Young' AND contactFirstName = 'Julie'
 3
 
 SELECT COUNT(*) FROM customers WHERE country = 'USA' AND creditLimit = '0'
 1
+
+SELECT customers.customerName, AVG(amount) AS average FROM payments LEFT JOIN customers ON customers.customerNumber = payments.customerNumber GROUP BY customers.customerNumber ORDER BY average DESC LIMIT 1
+Collectable Mini Designs Co.
+
+
+**THIRD BATCH**
+
+SELECT SUM(amount) FROM payments LEFT JOIN customers ON customers.customerNumber = payments.customerNumber WHERE customers.contactFirstName = 'William' AND customers.contactLastName = 'Brown' AND payments.paymentDate LIKE '2004%'
+38281.51
+
+SELECT customers.customerName, employees.firstName, employees.lastName FROM employees LEFT JOIN customers ON customers.salesRepEmployeeNumber = employees.employeeNumber WHERE salesRepEmployeeNumber
+
+Toys4GrownUps.com	Leslie	Thompson
+Signal Gift Stores	Leslie	Thompson
+Signal Collectibles Ltd.	Leslie	Jennings
+The Sharp Gifts Warehouse	Leslie	Jennings
+Corporate Gift Ideas Co.	Leslie	Jennings
+Technics Stores Inc.	Leslie	Jennings
+Mini Wheels Co.	Leslie	Jennings
+Mini Gifts Distributors Ltd.	Leslie	Jennings
+...
+
+
+SELECT customers.customerName, offices.city 
+FROM ((customers 
+INNER JOIN employees ON customers.salesRepEmployeeNumber = employees.employeeNumber) INNER JOIN offices ON employees.officeCode = offices.officeCode)
+WHERE customers.customerName = 'The Sharp Gifts Warehouse'
+San Francisco
+
+
 
 
 
