@@ -1,0 +1,33 @@
+**FIRST BATCH**
+
+SELECT productName FROM products WHERE productCode = 'S24_3856'
+1956 Porsche 356A Coupe
+
+SELECT AVG(buyPrice) FROM products
+54.395182
+
+SELECT COUNT(*) FROM products WHERE productName LIKE '%Ford%'
+15
+
+SELECT MAX(buyPrice) FROM products
+103.42
+
+SELECT COUNT(*) FROM products WHERE productLine = 'Ships'
+9
+
+
+**SECOND BATCH**
+
+SELECT COUNT(*) FROM orders WHERE customerNumber = '328'
+3
+
+SELECT COUNT(*) FROM orders WHERE customerNumber = (SELECT customerNumber FROM customers WHERE contactLastName = 'Young' AND contactFirstName = 'julie')
+3
+
+SELECT COUNT(*) FROM customers WHERE country = 'USA' AND creditLimit = '0'
+1
+
+
+
+
+
