@@ -1,5 +1,6 @@
 class Duolingo {
     val wordCollection: MutableList<Word>
+
     init {
         wordCollection = mutableListOf<Word>(
             Word("tuesday", "dinsdag", "en"),
@@ -16,21 +17,21 @@ class Duolingo {
     }
 
     fun play(){
-        var correct: Boolean = true
-        var i = 0
-        val currentWords = wordCollection.shuffled().take(5)
-        while (i < 5 && correct == true){
-            val randomWord = currentWords[i]
-            val randomWordText = randomWord.original
-            println(randomWordText)
-            println("What is the translation?")
+        val currentWords = wordCollection.shuffled().take(5).toMutableSet()
+        println(currentWords.count())
+
+        while (currentWords.isNotEmpty()){
+            val selectedWord = currentWords.random()
+            println("Wat is de vertaling van: ${selectedWord.original}")
             val userAnswer = readLine()
-            if (userAnswer == randomWord.translated){
-                i++
+
+            if (userAnswer != selectedWord.translated) {
+                println("Helaas niet correct, probeer later opnieuw")
+                currentWords.shuffled()
             } else {
-                correct = false
-                println("Wrong answer!")
+                currentWords.remove(selectedWord)
             }
         }
+        println("Goed gedaan! Je hebt alle woorden vertaald")
     }
 }
