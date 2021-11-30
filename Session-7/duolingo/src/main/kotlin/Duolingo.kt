@@ -1,8 +1,17 @@
 class Duolingo {
-    val wordCollection: MutableList<Word>
 
-    init {
-        wordCollection = mutableListOf<Word>(
+    var roundSize: Int = 0
+    var language: String = ""
+
+    constructor(roundSize: Int = 5, language: String = "en") {
+        println("Hoeveel woorden per ronde wil je?")
+        this.roundSize = readLine()!!.toInt()
+
+        println("Welke taal kies je? 'en' of 'fr'")
+        this.language = readLine()!!
+    }
+
+    val wordCollection = mutableListOf<Word>(
             Word("tuesday", "dinsdag", "en"),
             Word("screen", "scherm", "en"),
             Word("bike", "fiets", "en"),
@@ -13,11 +22,21 @@ class Duolingo {
             Word("car", "auto", "en"),
             Word("train", "trein", "en"),
             Word("cheese", "kaas", "en"),
+            Word("fromage", "kaas", "fr"),
+            Word("chien", "hond", "fr"),
+            Word("chat", "kat", "fr"),
+            Word("baguette", "stokbrood", "fr"),
+            Word("oui", "ja", "fr"),
+            Word("chauffage", "verwarming", "fr"),
+            Word("fenetre", "venster", "fr"),
+            Word("voiture", "auto", "fr"),
+            Word("bouteille", "fles", "fr"),
+            Word("eau", "water", "fr")
         )
-    }
 
     fun play(){
-        val currentWords = wordCollection.shuffled().take(5).toMutableSet()
+        val currentWords = wordCollection.filter { it.language == this.language }.toMutableSet()
+        currentWords.shuffled().take(this.roundSize).toMutableSet()
         println(currentWords.count())
 
         while (currentWords.isNotEmpty()){
