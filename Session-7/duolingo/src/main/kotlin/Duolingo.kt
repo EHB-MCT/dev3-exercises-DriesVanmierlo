@@ -35,8 +35,8 @@ class Duolingo {
         )
 
     fun play(){
-        val currentWords = wordCollection.filter { it.language == this.language }.toMutableSet()
-        currentWords.shuffled().take(this.roundSize).toMutableSet()
+        var currentWords = wordCollection.filter { it.language == this.language }.toMutableSet()
+        currentWords = currentWords.shuffled().take(this.roundSize).toMutableSet()
         println(currentWords.count())
 
         while (currentWords.isNotEmpty()){
