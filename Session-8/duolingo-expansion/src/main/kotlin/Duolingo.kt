@@ -27,30 +27,29 @@ class Duolingo {
                 throw Exception ("Selecteer een juiste moeilijkheid")
             }
         }
-
     }
 
-    val wordCollection = mutableListOf<Word>(
-            EnglishWord("tuesday", "dinsdag"),
-            EnglishWord("screen", "scherm"),
-            EnglishWord("bike", "fiets"),
-            EnglishWord("street", "straat"),
-            EnglishWord("wall", "muur"),
-            EnglishWord("cat", "kat"),
-            EnglishWord("dog", "hond"),
-            EnglishWord("car", "auto"),
-            EnglishWord("train", "trein"),
-            EnglishWord("cheese", "kaas"),
-            FrenchWord("fromage", "kaas"),
-            FrenchWord("chien", "hond"),
-            FrenchWord("chat", "kat"),
-            FrenchWord("baguette", "stokbrood"),
-            FrenchWord("oui", "ja"),
-            FrenchWord("chauffage", "verwarming"),
-            FrenchWord("fenetre", "venster"),
-            FrenchWord("voiture", "auto"),
-            FrenchWord("bouteille", "fles"),
-            FrenchWord("eau", "water")
+    var wordCollection = mutableListOf<Word>(
+            EnglishWord("tuesday", "dinsdag", 2),
+            EnglishWord("screen", "scherm", 2),
+            EnglishWord("bike", "fiets", 2),
+            EnglishWord("street", "straat", 2),
+            EnglishWord("wall", "muur", 1),
+            EnglishWord("cat", "kat", 1),
+            EnglishWord("dog", "hond", 1),
+            EnglishWord("car", "auto", 1),
+            EnglishWord("train", "trein", 1),
+            EnglishWord("cheese", "kaas", 2),
+            FrenchWord("fromage", "kaas", 2),
+            FrenchWord("chien", "hond", 1),
+            FrenchWord("chat", "kat", 1),
+            FrenchWord("baguette", "stokbrood", 2),
+            FrenchWord("oui", "ja", 1),
+            FrenchWord("chauffage", "verwarming", 2),
+            FrenchWord("fenetre", "venster", 2),
+            FrenchWord("voiture", "auto", 1),
+            FrenchWord("bouteille", "fles", 2),
+            FrenchWord("eau", "water", 1)
         )
 
     fun play(){
@@ -61,6 +60,7 @@ class Duolingo {
         while (currentWords.isNotEmpty()){
             val selectedWord = currentWords.random()
             println("Wat is de vertaling van: ${selectedWord.original}")
+            println("moeilijkheid: ${selectedWord.difficulty}")
             val userAnswer = readLine()
 
             if (userAnswer != selectedWord.translated) {
