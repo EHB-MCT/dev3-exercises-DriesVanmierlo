@@ -5,11 +5,29 @@ class Duolingo {
     var difficulty: String = ""
 
     constructor(roundSize: Int = 5, language: String = "en") {
-        println("Hoeveel woorden per ronde wil je?")
-        this.roundSize = readLine()!!.toInt()
+        println("typ 'custom' om zelf waarden in te stellen, typ 'moeilijkheid' om een moeilijkheid te selecteren.")
+        val userAnswer = readLine()
 
-        println("Welke taal kies je? 'en' of 'fr'")
-        this.language = readLine()!!
+        if (userAnswer == "custom"){
+            println("Hoeveel woorden per ronde wil je?")
+            this.roundSize = readLine()!!.toInt()
+
+            println("Welke taal kies je? 'en' of 'fr'")
+            this.language = readLine()!!
+        } else if (userAnswer == "moeilijkheid"){
+            println("'easy' of 'hard'")
+            this.difficulty = readLine()!!
+            if (this.difficulty == "easy"){
+                this.roundSize = 3
+                this.language = "fr"
+            }else if (this.difficulty == "hard"){
+                this.roundSize = 6
+                this.language = "en"
+            } else {
+                throw Exception ("Selecteer een juiste moeilijkheid")
+            }
+        }
+
     }
 
     val wordCollection = mutableListOf<Word>(
