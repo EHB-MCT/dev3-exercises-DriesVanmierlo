@@ -12,26 +12,26 @@ class Duolingo {
     }
 
     val wordCollection = mutableListOf<Word>(
-            Word("tuesday", "dinsdag", "en"),
-            Word("screen", "scherm", "en"),
-            Word("bike", "fiets", "en"),
-            Word("street", "straat", "en"),
-            Word("wall", "muur", "en"),
-            Word("cat", "kat", "en"),
-            Word("dog", "hond", "en"),
-            Word("car", "auto", "en"),
-            Word("train", "trein", "en"),
-            Word("cheese", "kaas", "en"),
-            Word("fromage", "kaas", "fr"),
-            Word("chien", "hond", "fr"),
-            Word("chat", "kat", "fr"),
-            Word("baguette", "stokbrood", "fr"),
-            Word("oui", "ja", "fr"),
-            Word("chauffage", "verwarming", "fr"),
-            Word("fenetre", "venster", "fr"),
-            Word("voiture", "auto", "fr"),
-            Word("bouteille", "fles", "fr"),
-            Word("eau", "water", "fr")
+            EnglishWord("tuesday", "dinsdag"),
+            EnglishWord("screen", "scherm"),
+            EnglishWord("bike", "fiets"),
+            EnglishWord("street", "straat"),
+            EnglishWord("wall", "muur"),
+            EnglishWord("cat", "kat"),
+            EnglishWord("dog", "hond"),
+            EnglishWord("car", "auto"),
+            EnglishWord("train", "trein"),
+            EnglishWord("cheese", "kaas"),
+            FrenchWord("fromage", "kaas"),
+            FrenchWord("chien", "hond"),
+            FrenchWord("chat", "kat"),
+            FrenchWord("baguette", "stokbrood"),
+            FrenchWord("oui", "ja"),
+            FrenchWord("chauffage", "verwarming"),
+            FrenchWord("fenetre", "venster"),
+            FrenchWord("voiture", "auto"),
+            FrenchWord("bouteille", "fles"),
+            FrenchWord("eau", "water")
         )
 
     fun play(){
